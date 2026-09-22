@@ -1,0 +1,24 @@
+from typing import List
+
+def l_c(nums: List[int]) -> int:
+    nums_set = set(nums)
+    longest = 0
+
+    for num in nums_set:
+        if num - 1 in nums_set:
+            continue
+
+        current = num
+        count = 1
+
+        while current + 1 in nums_set:
+            current += 1
+            count += 1
+
+        longest = max(longest, count)
+
+    return longest
+
+
+print(l_c([100, 4, 200, 3, 2, 1]))
+
